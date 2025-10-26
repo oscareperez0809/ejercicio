@@ -1,5 +1,3 @@
----
-
 # 🍩 Donuts App
 
 ## 🧠 Brief Description
@@ -56,7 +54,6 @@ lib/
 ## 🎥 Demo
 
 ![Demo GIF](lib/video/demo.gif)
-_(Replace the link with your actual GIF URL or local file)_
 
 ---
 
@@ -76,5 +73,3 @@ Original design inspired by [App UI on Dribbble](https://dribbble.com/shots/1964
 ## ✨ Author
 
 **Oscar Tadeo Pérez Bocos**
-
----
