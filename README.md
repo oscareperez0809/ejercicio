@@ -45,6 +45,8 @@ lib/
 ├── utils/
 │   ├── donut_tile.dart        # Widget displaying donut info
 │   └── my_tab.dart            # Widget for tab design
+├── video/
+│   └──demo.gif                # GIF of project
 └── main.dart                  # App entry point
 
 ```
