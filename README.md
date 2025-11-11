@@ -1,18 +1,19 @@
-# 🍩 Donuts App
+# 🎵 Music Store App
 
 ## 🧠 Brief Description
 
-**Donuts App** is a Flutter-based mobile application that showcases a modern and interactive donut store interface. Users can explore different donut flavors, view detailed information, and add their favorite items to the cart.
+**Music Store App** is a Flutter-based mobile application that showcases a modern and interactive interface for exploring musical instruments and gear.  
+Users can browse categories such as synthesizers, DJ mixers, turntables, vinyl albums, and studio equipment — and add their favorite items to the cart.
 
 ---
 
 ## 🧩 Main Widgets Description
 
-- **`HomePage`** 🏠 – Displays the main screen with donut categories and featured products.
-- **`DonutTab`** 🍩 – Shows a tab with donut items filtered by type.
-- **`DonutTile`** 🧱 – A reusable widget that displays each donut’s image, name, price, and “add to cart” button.
-- **`CartPage`** 🛒 – Displays selected donuts, their quantities, and the total price.
-- **`MyTab`** 🗂️ – A custom tab controller used to navigate between different donut categories.
+- **`HomePage`** 🏠 – Displays the main screen with categories like albums, instruments, and accessories.
+- **`DonutTab`** 🎹 – Displays a product tab (in this version used to show music-related items such as synthesizers or albums).
+- **`DonutTile`** 🧱 – A reusable widget that displays each item’s image, name, price, and “add to cart” button.
+- **`CartPage`** 🛒 – Displays selected items, their quantities, and the total price.
+- **`MyTab`** 🗂️ – A custom tab controller used to navigate between different product categories.
 
 ---
 
@@ -29,23 +30,24 @@
 
 ```
 lib/
-├── icons/                     # App icons and vector assets
-├── images/                    # Donut and UI images
+├── icons/ # App icons and vector assets
+├── images/ # Product and UI images
 ├── screens/
-│   └── home_page.dart         # Main home screen with category navigation
+│ └── home_page.dart # Main home screen with category navigation
 ├── tab/
-│   ├── burger_tab.dart        # Tab for burger items
-│   ├── burguer_tab.dart       # (Alternative or duplicate) burger tab
-│   ├── donut_tab.dart         # Tab for donut items
-│   ├── pancake_tab.dart       # Tab for pancake items
-│   ├── pizza_tab.dart         # Tab for pizza items
-│   └── smoothie_tab.dart      # Tab for smoothie items
+│ ├── burguer_tab.dart # Category tab (e.g., dj controller)
+│ ├── donut_tab.dart # Category tab (e.g., albums)
+│ ├── pancake_tab.dart # Category tab (e.g., turntable)
+│ ├── pizza_tab.dart # Category tab (e.g., keyboard)
+│ └── smoothie_tab.dart # Category tab (e.g., synthesizers)
 ├── utils/
-│   ├── donut_tile.dart        # Widget displaying donut info
-│   └── my_tab.dart            # Widget for tab design
+│ ├── donut_tile.dart # Widget displaying item info
+│ └── my_tab.dart # Widget for tab design
 ├── video/
-│   └──demo.gif                # GIF of project
-└── main.dart                  # App entry point
+│ └── demo.gif # Demo GIF of the app
+├── cart_page.dart # Shopping cart page
+├── login_page.dart # Login screen
+└── main.dart # App entry point
 
 ```
 

@@ -83,11 +83,11 @@ class _HomePageState extends State<HomePage> {
               child: TabBarView(
                 children: [
                   // 🔹 DonutTab modificado para recibir el callback
-                  DonutTab(onAddToCart: addToCart),
-                  burguerTab(onAddToCart: addToCart),
-                  smoothieTab(onAddToCart: addToCart),
-                  pancakeTab(onAddToCart: addToCart),
-                  pizzaTab(onAddToCart: addToCart),
+                  DonutTab(onAddToCart: addToCart), // albumes
+                  burguerTab(onAddToCart: addToCart), // mesa dj
+                  smoothieTab(onAddToCart: addToCart), // sintetizadores
+                  pancakeTab(onAddToCart: addToCart), // tocadiscos
+                  pizzaTab(onAddToCart: addToCart), // teclados
                 ],
               ),
             ),
