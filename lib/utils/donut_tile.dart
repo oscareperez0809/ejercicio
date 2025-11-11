@@ -6,6 +6,11 @@ class DonutTile extends StatelessWidget {
   final dynamic DonutColor;
   final String DonutImage;
   final String DonutSupplier;
+  final double DonutRating;
+
+  // 🔹 Nuevo parámetro: callback para agregar al carrito
+  final void Function()? onAdd;
+
   const DonutTile({
     super.key,
     required this.DonutFlavor,
@@ -13,6 +18,8 @@ class DonutTile extends StatelessWidget {
     this.DonutColor,
     required this.DonutImage,
     required this.DonutSupplier,
+    this.DonutRating = 4.5,
+    this.onAdd, // <- agregado
   });
 
   @override
@@ -25,14 +32,16 @@ class DonutTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(24),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // Precio
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
                   decoration: BoxDecoration(
                     color: DonutColor[100],
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(24),
                       topRight: Radius.circular(24),
                     ),
@@ -52,12 +61,14 @@ class DonutTile extends StatelessWidget {
                 ),
               ],
             ),
-            //Imagen de la dona
+
+            // Imagen
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 18),
               child: Image.asset(DonutImage),
             ),
-            //Nombre de la dona
+
+            // Nombre
             Text(
               DonutFlavor,
               style: TextStyle(
@@ -66,20 +77,49 @@ class DonutTile extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            //Tienda de la dona
+
+            // Artista
             Text(DonutSupplier, style: TextStyle(color: Colors.grey[600])),
-            //Botones
+
+            // Estrellas
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 6.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(5, (index) {
+                  if (index < DonutRating.floor()) {
+                    return const Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                      size: 20,
+                    );
+                  } else if (index < DonutRating) {
+                    return const Icon(
+                      Icons.star_half,
+                      color: Colors.amber,
+                      size: 20,
+                    );
+                  } else {
+                    return const Icon(
+                      Icons.star_border,
+                      color: Colors.amber,
+                      size: 20,
+                    );
+                  }
+                }),
+              ),
+            ),
+
+            // Botones
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  //Favorito
                   Icon(Icons.favorite, color: Colors.pink[400]),
-                  //Agregar
                   TextButton(
-                    onPressed: () {},
-                    child: Text(
+                    onPressed: onAdd, // ✅ ahora usa el callback
+                    child: const Text(
                       'Add',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,

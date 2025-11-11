@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:donut/screens/home_page.dart';
+import 'package:ejercicio/login_page.dart'; // 👈 ajusta según tu paquete
+import 'package:ejercicio/screens/home_page.dart'; // 👈 tu pantalla principal
 
 void main() {
   runApp(const MyApp());
@@ -8,16 +9,16 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Mi App con Login',
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const HomePage(),
+      initialRoute: '/', // Inicia en el login
+      routes: {
+        '/': (context) => const LoginPage(),
+        '/home': (context) => const HomePage(),
+      },
     );
   }
 }

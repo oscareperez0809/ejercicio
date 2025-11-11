@@ -1,15 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.donuts_app_oscarp">
+    package="com.example.donut">
 
-    <!-- Permiso para usar internet (necesario para Flutter durante el desarrollo) -->
+    <!-- Permiso de internet -->
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:label="donuts_app_oscarp"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-
-        <!-- Actividad principal (punto de inicio de la app) -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -19,20 +17,22 @@
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
 
-            <!-- Este filtro indica que esta actividad es la que se lanza al abrir la app -->
+            <!-- Flutter's entry point -->
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
         </activity>
 
-        <!-- Tema normal que se usará cuando la app esté activa -->
+        <!-- Flutter normal theme -->
         <meta-data
             android:name="io.flutter.embedding.android.NormalTheme"
-            android:resource="@style/NormalTheme" />
-
-        <!-- Indica que Flutter usa la nueva forma de incrustar el motor -->
+            android:resource="@style/NormalTheme"
+            />
+        <meta-data
+            android:name="io.flutter.embedding.android.SplashScreenDrawable"
+            android:resource="@drawable/launch_background"
+            />
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />

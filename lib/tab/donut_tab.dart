@@ -1,51 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:donut/utils/donut_tile.dart';
+import 'package:ejercicio/utils/donut_tile.dart';
 
 class DonutTab extends StatelessWidget {
-  //lista de donas
+  final Function(String, double) onAddToCart; // nuevo parámetro
+  DonutTab({super.key, required this.onAddToCart});
+
   final List DonutsSale = [
-    //donut flavor
-    //donut price
-    //donut color
-    //donut image
-    //donut supplier
     [
-      'Chocolate',
+      'DS2EVER',
       '90',
-      Colors.brown,
-      "lib/images/chocolate_donut.png",
-      'Starbucks',
+      Colors.blueGrey,
+      "lib/images/ds2ever_fixed.png",
+      'GUNNA',
+      3.8,
     ],
+    ['SOS', '100', Colors.green, "lib/images/SOS_fixed.png", 'SZA', 4.4],
     [
-      'Strawberry',
-      '100',
-      Colors.pink,
-      "lib/images/strawberry_donut.png",
-      'Starbucks',
-    ],
-    [
-      'Vanilla',
+      'HEELS HAVE EYES 3',
       '85',
       Colors.yellow,
-      "lib/images/icecream_donut.png",
-      'Starbucks',
+      "lib/images/HHE3_fixed.png",
+      'Westside Gunn',
+      4.8,
     ],
-    ['Matcha', '130', Colors.green, "lib/images/grape_donut.png", 'Starbucks'],
+    [
+      'Nevermind',
+      '130',
+      Colors.blue,
+      "lib/images/nevermind_fixed.png",
+      'NIRVANA',
+      5.0,
+    ],
   ];
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      //se encarga de acomodar elementos dentro de un grid
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        //numero de columnas
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-         //relacion de aspecto
-        childAspectRatio: 1 / 1.45,
+        childAspectRatio: 1 / 1.6,
       ),
       itemCount: DonutsSale.length,
-
-      //lo que se va a construir en el grid
       itemBuilder: (context, index) {
         return DonutTile(
           DonutFlavor: DonutsSale[index][0],
@@ -53,6 +48,11 @@ class DonutTab extends StatelessWidget {
           DonutColor: DonutsSale[index][2],
           DonutImage: DonutsSale[index][3],
           DonutSupplier: DonutsSale[index][4],
+          DonutRating: DonutsSale[index][5],
+          onAdd: () => onAddToCart(
+            DonutsSale[index][0],
+            double.parse(DonutsSale[index][1]),
+          ),
         );
       },
     );
